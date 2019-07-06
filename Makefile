@@ -14,7 +14,7 @@ eula.txt:
 	echo eula=true > $@
 
 plugins/scriptcraft-%.jar: plugins
-	curl -o plugins/scriptcraft-$*.jar https://github.com/walterhiggins/ScriptCraft/releases/download/$*/scriptcraft.jar
+	curl -L -o plugins/scriptcraft-$*.jar https://github.com/walterhiggins/ScriptCraft/releases/download/$*/scriptcraft.jar
 
 out:
 	mkdir out
