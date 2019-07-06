@@ -3,6 +3,7 @@ with import <nixpkgs> {
   config.oraclejdk.accept_license=true;
 };
 [
+  ant
   cacert
   curl
   openjdk
