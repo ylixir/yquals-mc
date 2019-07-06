@@ -1,4 +1,5 @@
 SC_VERSION=3.4.0
+BC_VERSION=v1.9.4-alpha
 MC_VERSION=1.14.3
 
 recurse: out
@@ -7,7 +8,7 @@ recurse: out
 clean:
 	rm -rf out
 
-run: spigot-${MC_VERSION}.jar plugins/scriptcraft-${SC_VERSION}.jar eula.txt 
+run: spigot-${MC_VERSION}.jar plugins/blocklycraft-${BC_VERSION}.jar eula.txt 
 	java -jar $<
 
 eula.txt:
@@ -15,6 +16,8 @@ eula.txt:
 
 plugins/scriptcraft-%.jar: plugins
 	curl -L -o plugins/scriptcraft-$*.jar https://github.com/walterhiggins/ScriptCraft/releases/download/$*/scriptcraft.jar
+plugins/blocklycraft-%.jar: plugins
+	curl -L -o plugins/blocklycraft-$*.jar https://github.com/bgon/BlocklyCraft/releases/download/$*/blocklycraft.jar
 
 out:
 	mkdir out
