@@ -9,9 +9,17 @@ recurse: out
 
 clean:
 	rm -rf out
+clean-world:
+	rm -rf out/world*
+clean-plugins:
+	rm -rf out/plugins
+	rm -rf out/scriptcraft
 
-run: spigot-${MC_VERSION}.jar plugins/blocklycraft-${BC_VERSION}.jar eula.txt 
+run: spigot-${MC_VERSION}.jar plugins/blocklycraft-${BC_VERSION}.jar eula.txt server.properties
 	java -jar $<
+
+server.properties: ../server.properties
+	cp ../server.properties .
 
 eula.txt:
 	echo eula=true > $@
